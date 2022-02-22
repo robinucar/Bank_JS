@@ -39,12 +39,21 @@ describe("Account Class", () => {
         balance: 100,
       },
     ]);
-})
+  });
 
-    it("should add multiple transaction to the transactionList", () => {
-        account1.withdraw(50)
-        account1.deposit(25)
-        account1.withdraw(10)
-        expect(account1.transactionList.length).toEqual(4)
+  it("should add multiple transaction to the transactionList", () => {
+    account1.withdraw(50);
+    account1.deposit(25);
+    account1.withdraw(10);
+    expect(account1.transactionList.length).toEqual(4);
+  });
+
+  it("should print the transaction", () => {
+    const account2 = new Account();
+    account2.deposit(100);
+		
+    expect(account2.printTransaction()).toEqual(
+			"date || credit || debit || balance\n" + "22/02/2022 || 100 ||  || 100\n"
+			);
   });
 });
