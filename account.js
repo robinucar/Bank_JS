@@ -6,6 +6,13 @@ class Account {
     }
     deposit(deposit_amount){
         this.balance += deposit_amount
+        this.transactionList.push({
+            date: this.date,
+            deposit: deposit_amount,
+            withdraw: '',
+            balance: this.balance
+        })
+        
     }
 
     withdraw(withdraw_amount) {
@@ -15,6 +22,12 @@ class Account {
             throw new Error('Payment error: You do not have enough balance for this transaction')
         }
         this.balance -= withdraw_amount
+        this.transactionList.push({
+            date: this.date,
+            deposit: '',
+            withdraw: withdraw_amount,
+            balance: this.balance
+        })
     }
 
 
