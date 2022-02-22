@@ -6,7 +6,7 @@ describe("Account Class", () => {
   });
 
   it("balance should  increase by deposit amount", () => {
-      account.deposit(100)
-      expect(account.balance).toEqual(100)
-  })
+    account.deposit(100);
+    expect(account.balance).toEqual(100);
+  });
 });
