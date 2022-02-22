@@ -14,4 +14,8 @@ describe("Account Class", () => {
     account.withdraw(50);
     expect(account.balance).toEqual(50);
   });
+  it('should throw an error when widhdrawing if balance is 0', () => {
+      account.balance = 0
+      expect(() => account.withdraw(100)).toThrow()
+  }) 
 });
