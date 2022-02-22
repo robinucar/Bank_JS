@@ -1,6 +1,7 @@
 const Account = require("../account");
 describe("Account Class", () => {
   const account = new Account();
+  const account1 = new Account();
   it("Should create an account with 0 balance", () => {
     expect(account.balance).toEqual(0);
   });
@@ -23,8 +24,27 @@ describe("Account Class", () => {
     expect(() => account.withdraw(100)).toThrow();
   });
 
-  it('should start with empty transaction list', () => {
-      account1 = new Account()
-      expect(account1.transactionList.length).toEqual(0)
-  })
+  it("should start with empty transaction list", () => {
+    expect(account1.transactionList.length).toEqual(0);
+  });
+
+  it("should add transaction to the transactionList", () => {
+    account1.balance = 0;
+    account1.deposit(100);
+    expect(account1.transactionList).toEqual([
+      {
+        date: "22/02/2022",
+        deposit: 100,
+        withdraw: "",
+        balance: 100,
+      },
+    ]);
+})
+
+    it("should add multiple transaction to the transactionList", () => {
+        account1.withdraw(50)
+        account1.deposit(25)
+        account1.withdraw(10)
+        expect(account1.transactionList.length).toEqual(4)
+  });
 });
