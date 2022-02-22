@@ -33,6 +33,13 @@ class Account {
     });
   }
 
+  printTransaction() {
+      let statement = "date || credit || debit || balance\n";
+      this.transactionList.forEach(transactionEl => {
+        statement += `${transactionEl.date} || ${transactionEl.deposit} || ${transactionEl.withdraw} || ${transactionEl.balance}\n`;
+      })
+     return statement
+  }
 
 }
 module.exports = Account;
