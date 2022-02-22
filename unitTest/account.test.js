@@ -11,7 +11,6 @@ describe("Account Class", () => {
   });
 
   it("balance should  decrease by withdraw amount", () => {
-    account.deposit(100);
     account.withdraw(50);
     expect(account.balance).toEqual(50);
   });
