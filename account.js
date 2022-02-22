@@ -1,6 +1,7 @@
 class Account {
     constructor() {
       this.balance = 0;
+      this.transactionList = []
     }
     deposit(deposit_amount){
         return this.balance += deposit_amount
